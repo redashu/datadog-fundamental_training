@@ -163,3 +163,9 @@ less  datadog.yaml
 
 <img src="compo.png">
 
+### datadog agent architecture -- and component 
+
+<img src="arch.png">
+
+
+
