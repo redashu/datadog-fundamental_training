@@ -67,7 +67,7 @@ sudo apt update
 ubuntu@ip-172-31-90-155:~$ sudo -i
 root@ip-172-31-90-155:~#
 
- DD_API_KEY=d30d5f693b844abf93dacab1668a56ea DD_SITE="datadoghq.com" bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script_agent7.sh)"
+ DD_API_KEY=a DD_SITE="datadoghq.com" bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script_agent7.sh)"
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
