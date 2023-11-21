@@ -244,3 +244,46 @@ process_config:
   process_collection:
     enabled: true
 ```
+
+### summary of datadog fundamentals
+
+<img src="funda.png">
+
+### more datadog commands 
+
+```
+root@ip-172-31-90-155:~# datadog-agent  status
+Getting the status from the agent.
+
+
+===============
+Agent (v7.49.1)
+===============
+
+  Status date: 2023-11-21 10:16:22.342 UTC (1700561782342)
+  Agent start: 2023-11-21 09:52:58.192 UTC (1700560378192)
+  Pid: 41429
+  Go Version: go1.20.10
+  Python Version: 3.9.18
+  Build arch: amd64
+  Agent flavor: agent
+  Check Runners: 4
+```
+
+### containers intro
+
+<img src="container.png">
+
+### installing docker and checking container 
+
+```
+  59  apt  install docker.io
+   60  history
+root@ip-172-31-90-155:~#
+root@ip-172-31-90-155:~# docker  ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+root@ip-172-31-90-155:~#
+root@ip-172-31-90-155:~#
+
+```
+
