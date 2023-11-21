@@ -138,4 +138,22 @@ root@ip-172-31-90-155:~# systemctl status datadog-agent
 <img src="report.png">
 
 
+### datadog site ULR for agent configuration 
 
+<img src="site.png">
+
+### chekcing datadog agent configuration file 
+
+```
+ cd  /etc/datadog-agent/
+root@ip-172-31-90-155:/etc/datadog-agent# ls
+auth_token    conf.d                install_info                 selinux
+checks.d      datadog.yaml          runtime-security.d           system-probe.yaml.example
+compliance.d  datadog.yaml.example  security-agent.yaml.example
+```
+
+### to see file use less or any relevant command in linux 
+
+```
+less  datadog.yaml
+```
