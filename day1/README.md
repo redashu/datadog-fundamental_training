@@ -167,5 +167,80 @@ less  datadog.yaml
 
 <img src="arch.png">
 
+### How to enable process monitoring in datadog agent yaml file 
+
+```
+root@ip-172-31-90-155:/etc/datadog-agent# pwd
+/etc/datadog-agent
+root@ip-172-31-90-155:/etc/datadog-agent# ls
+auth_token  compliance.d  datadog.yaml          install_info        security-agent.yaml.example  system-probe.yaml.example
+checks.d    conf.d        datadog.yaml.example  runtime-security.d  selinux
+root@ip-172-31-90-155:/etc/datadog-agent#
+root@ip-172-31-90-155:/etc/datadog-agent#
+root@ip-172-31-90-155:/etc/datadog-agent# wc -l  datadog.yaml
+3207 datadog.yaml
 
 
+root@ip-172-31-90-155:/etc/datadog-agent# grep -in process_config   datadog.yaml
+567:  ## - process_config.process_dd_url
+1538:## @param process_config - custom object - optional
+1543:# process_config:
+1561:  ## @env DD_PROCESS_CONFIG_ENABLED - string - optional - default: "false"
+1570:  ## @env DD_PROCESS_CONFIG_EXPVAR_PORT - string - optional - default: 6062
+1581:  ## @env DD_PROCESS_CONFIG_LOG_FILE - string - optional
+1587:  ## @env DD_PROCESS_CONFIG_INTERVALS_CONTAINER - integer - optional - default: 10
+1588:  ## @env DD_PROCESS_CONFIG_INTERVALS_CONTAINER_REALTIME - integer - optional - default: 2
+1589:  ## @env DD_PROCESS_CONFIG_INTERVALS_PROCESS - integer - optional - default: 10
+1590:  ## @env DD_PROCESS_CONFIG_INTERVALS_PROCESS_REALTIME - integer - optional - default: 2
+1613:  ## @env DD_PROCESS_CONFIG_BLACKLIST_PATTERNS - space separated list of strings - optional
+1620:  ## @env DD_PROCESS_CONFIG_QUEUE_SIZE - integer - optional - default: 256
+1626:  ## @env DD_PROCESS_CONFIG_PROCESS_QUEUE_BYTES - integer - optional - default: 60000000
+1632:  ## @env DD_PROCESS_CONFIG_RT_QUEUE_SIZE - integer - optional - default: 5
+1638:  ## @env DD_PROCESS_CONFIG_MAX_PER_MESSAGE - integer - optional - default: 100
+1644:  ## @env DD_PROCESS_CONFIG_DD_AGENT_BIN - string - optional
+1652:  ## @env DD_PROCESS_CONFIG_DD_AGENT_ENV - string - optional - default: ""
+1658:  ## @env DD_PROCESS_CONFIG_SCRUB_ARGS - boolean - optional - default: true
+1664:  ## @env DD_PROCESS_CONFIG_CUSTOM_SENSITIVE_WORDS - space separated list of strings - optional
+1676:  ## @env DD_PROCESS_CONFIG_DISABLE_REALTIME - boolean - optional - default: false
+
+
+
+root@ip-172-31-90-155:/etc/datadog-agent#
+root@ip-172-31-90-155:/etc/datadog-agent#
+root@ip-172-31-90-155:/etc/datadog-agent#
+root@ip-172-31-90-155:/etc/datadog-agent# vim  +1543    datadog.yaml # to openfile in that linenumber 
+
+root@ip-172-31-90-155:/etc/datadog-agent#
+root@ip-172-31-90-155:/etc/datadog-agent# systemctl restart  datadog-agent
+root@ip-172-31-90-155:/etc/datadog-agent#
+root@ip-172-31-90-155:/etc/datadog-agent# systemctl status  datadog-agent
+● datadog-agent.service - Datadog Agent
+     Loaded: loaded (/lib/systemd/system/datadog-agent.service; enabled; vendor preset: enabled)
+     Active: active (running) since Tue 2023-11-21 09:52:58 UTC; 10s ago
+   Main PID: 41429 (agent)
+      Tasks: 8 (limit: 4667)
+     Memory: 80.8M
+        CPU: 1.323s
+     CGroup: /system.slice/datadog-agent.service
+             └─41429 /opt/datadog-agent/bin/agent/agent run -p /opt/datadog-agent/run/agent.pid
+
+Nov 21 09:53:00 ip-172-31-90-155 agent[41429]: 2023-11-21 09:53:00 UTC | CORE | INFO | (pkg/collector/worker/check_logger.go:39 in Ch>
+Nov 21 09:53:00 ip-172-31-90-155 agent[41429]: 2023-11-21 09:53:00 UTC | CORE | INFO | (pkg/collector/worker/check_logger.go:58 in Ch>
+Nov 21 09:53:04 ip-172-31-90-155 agent[41429]: 2023-11-21 09:53:04 UTC | CORE | INFO | (pkg/collector/worker/check_logger.go:39 in Ch>
+Nov 21 09:53:04 ip-172-31-90-155 agent[41429]: 2023-11-21 09:53:04 UTC | CORE | INFO | (pkg/collector/worker/check_logger.go:58 in Ch>
+Nov 21 09:53:05 ip-172-31-90-155 agent[41429]: 2023-11-21 09:53:05 UTC | CORE | INFO | (pkg/collector/worker/check_logger.go:39 in Ch>
+Nov 21 09:53:05 ip-172-31-90-155 agent[41429]: 2023-11-21 09:53:05 UTC | CORE | INFO | (pkg/collector/worker/check_logger.go:58 in Ch>
+Nov 21 09:53:06 ip-172-31-90-155 agent[41429]: 2023-11-21 09:53:06 UTC | CORE | INFO | (pkg/collector/worker/check_logger.go:39 in Ch>
+Nov 21 09:53:06 ip-172-31-90-155 agent[41429]: 2023-11-21 09:53:06 UTC | CORE | INFO | (pkg/collector/worker/check_logger.go:58 in Ch>
+Nov 21 09:53:07 ip-172-31-90-155 agent[41429]: 2023-11-21 09:53:07 UTC | CORE | INFO | (pkg/collector/worker/check_logger.go:39 in Ch>
+Nov 21 09:53:07 ip-172-31-90-155 agent[41429]: 2023-11-21 09:53:07 UTC | CORE | INFO | (pkg/collector/worker/check_logger.go:58 in Ch>
+root@ip-172-31-90-155:/etc/datadog-agent#
+```
+
+### changes we made
+
+```
+process_config:
+  process_collection:
+    enabled: true
+```
