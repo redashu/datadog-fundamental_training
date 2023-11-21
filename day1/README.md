@@ -287,3 +287,33 @@ root@ip-172-31-90-155:~#
 
 ```
 
+### creating container of webapp
+
+```
+root@ip-172-31-90-155:~# docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+root@ip-172-31-90-155:~#
+root@ip-172-31-90-155:~# docker  run -itd --name ashuapp1 -p 1234:80  nginx
+Unable to find image 'nginx:latest' locally
+latest: Pulling from library/nginx
+1f7ce2fa46ab: Pull complete
+9b16c94bb686: Pull complete
+9a59d19f9c5b: Pull complete
+9ea27b074f71: Pull complete
+c6edf33e2524: Pull complete
+84b1ff10387b: Pull complete
+517357831967: Pull complete
+Digest: sha256:e5c240a6604281581e9828af96485f7bcb9fce9e7b0e43b8189ea9f38495a4c9
+Status: Downloaded newer image for nginx:latest
+166acf172bc07ec51d5832fa90e0a629da60dfa70e6c7a6147e05526a4add128
+root@ip-172-31-90-155:~#
+root@ip-172-31-90-155:~# docker  ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                                   NAMES
+166acf172bc0   nginx     "/docker-entrypoint.…"   6 seconds ago   Up 2 seconds   0.0.0.0:1234->80/tcp, :::1234->80/tcp   ashuapp1
+root@ip-172-31-90-155:~#
+
+```
+
+## do that practise of container monitoring 
+
+
