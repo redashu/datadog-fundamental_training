@@ -131,4 +131,11 @@ root@ip-172-31-90-155:~# systemctl status datadog-agent
 
 ```
 
+### checking dashboard of datadog -- after clicking on finish button 
+
+### Note: in some cases it can take up to 10 minutes 
+
+<img src="report.png">
+
+
 
