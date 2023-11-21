@@ -157,3 +157,9 @@ compliance.d  datadog.yaml.example  security-agent.yaml.example
 ```
 less  datadog.yaml
 ```
+
+
+### default reporting component 
+
+<img src="compo.png">
+
