@@ -10,3 +10,13 @@
 
 <img src="agent.png">
 
+### Using datadog -- understanding basic subscription model 
+
+<img src="model.png">
+
+### Understanding lab env 
+
+<img src="lab.png">
+
+
+
