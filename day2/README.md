@@ -156,4 +156,22 @@ root@ashu-ubuntu:~#
 
 ```
 
+## Introduction to tags in datadog 
+
+<img src="tag.png">
+
+## Introduction to metrics -- aggregation and type 
+
+<img src="met.png">
+
+### more info 
+
+<img src="met1.png">
+
+### datadog API can directly accept metric without any aggregation 
+
+<img src="met2.png">
+
+
+
 
