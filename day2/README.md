@@ -143,3 +143,17 @@ conf.yaml.default
 
 <img src="add_d.png">
 
+### creating container 
+
+```
+docker  run -d --name ashuc1   nginx  
+12316fcd3a369949574192335cebca8d5b6a051d41ead2a81f2ce9e815a08da7
+root@ashu-ubuntu:~# docker  ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED              STATUS          PORTS     NAMES
+12316fcd3a36   nginx     "/docker-entrypoint.…"   About a minute ago   Up 59 seconds   80/tcp    ashuc1
+a9a31387efc0   nginx     "/docker-entrypoint.…"   38 minutes ago       Up 38 minutes   80/tcp    c1
+root@ashu-ubuntu:~# 
+
+```
+
+
