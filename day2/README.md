@@ -95,3 +95,51 @@ checks.d      datadog.yaml          runtime-security.d           system-probe.ya
 compliance.d  datadog.yaml.example  security-agent.yaml.example
 root@ip-172-31-90-155:/etc/datadog-agent#
 ```
+
+
+### datadog agent info 
+
+<img src="ag.png">
+
+### docker integration with datadog agent -- using integration approach not using datadog.yaml file 
+
+### for integration conf dir 
+
+```
+ cd  /etc/datadog-agent/
+root@ashu-ubuntu:/etc/datadog-agent# ls
+auth_token  compliance.d  datadog.yaml          install_info        security-agent.yaml.example  system-probe.yaml.example
+checks.d    conf.d        datadog.yaml.example  runtime-security.d  selinux
+root@ashu-ubuntu:/etc/datadog-agent# cd  conf.d/
+root@ashu-ubuntu:/etc/datadog-agent/conf.d# ls
+activemq.d             crio.d                   ibm_was.d                  network.d                   solr.d
+activemq_xml.d         datadog_cluster_agent.d  ignite.d                   nfsstat.d                   sonarqube.d
+aerospike.d            dcgm.d                   impala.d                   nginx.d                     spark.d
+airflow.d              directory.d              io.d                       nginx_ingress_controller.d  sqlserver.d
+amazon_msk.d           disk.d                   istio.d                    ntp.d                       squid.d
+ambari.d               dns_check.d              jboss_wildfly.d            oom_kill.d                  ssh_check.d
+apache.d               docker.d                 jetson.d                   openldap.d                  statsd.d
+arangodb.d             druid.d                  jmx.d      
+```
+
+### checking user
+
+```
+root@ip-172-31-90-155:/etc/datadog-agent/conf.d# grep agent  /etc/passwd
+dd-agent:x:115:122::/opt/datadog-agent:/usr/sbin/nologin
+```
+
+### Integration of docker with datadog 
+
+```
+ usermod  -aG  docker  dd-agent 
+root@ashu-ubuntu:~# cd  /etc/datadog-agent/conf.d/docker.d/
+root@ashu-ubuntu:/etc/datadog-agent/conf.d/docker.d# ls
+conf.yaml.default
+
+```
+
+### adding data in file as given 
+
+<img src="add_d.png">
+
