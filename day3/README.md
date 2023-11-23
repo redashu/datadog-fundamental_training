@@ -57,6 +57,36 @@ Logs Agent
   Logs Agent is not running
 ```
 
+## enabling log component under datadog agent -- use any editor to edit setting like given below 
 
+```
+datadog.yaml ---
 
+====
+logs_enabled: true
+
+=====>> restarting agent
+systemctl restart datadog-agent
+
+===>verify by datadog-agent status 
+```
+
+### enable docker loggin in host based datadog agent 
+
+### datadog.yaml 
+
+```
+
+logs_enabled: true
+listeners:
+    - name: docker
+config_providers:
+    - name: docker
+      polling: true
+logs_config:
+    container_collect_all: true
+
+```
+
+### restart datadog agent 
 
