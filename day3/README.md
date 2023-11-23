@@ -90,3 +90,58 @@ logs_config:
 
 ### restart datadog agent 
 
+### monolith to microservices
+
+<img src="mono.png">
+
+### introduction to kubernetes 
+
+<img src="k8s.png">
+
+### AKS + datadog
+
+<img src="k8s1.png">
+
+### final understanding of datadog agent deployment in a particular namespace in AKS 
+
+<img src="k8s2.png">
+
+### checking k8s connection 
+
+```
+
+ashu@ip-172-31-33-254:~$ kubectl  cluster-info  --kubeconfig  /tmp/config
+Kubernetes control plane is running at https://k8s-dev-dns-4xd4wbq8.hcp.eastus.azmk8s.io:443
+CoreDNS is running at https://k8s-dev-dns-4xd4wbq8.hcp.eastus.azmk8s.io:443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+Metrics-server is running at https://k8s-dev-dns-4xd4wbq8.hcp.eastus.azmk8s.io:443/api/v1/namespaces/kube-system/services/https:metrics-server:/proxy
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+ashu@ip-172-31-33-254:~$
+ashu@ip-172-31-33-254:~$
+ashu@ip-172-31-33-254:~$
+ashu@ip-172-31-33-254:~$ cp -v  /tmp/config   .kube/
+'/tmp/config' -> '.kube/config'
+ashu@ip-172-31-33-254:~$
+ashu@ip-172-31-33-254:~$
+ashu@ip-172-31-33-254:~$
+ashu@ip-172-31-33-254:~$ kubectl  cluster-info
+Kubernetes control plane is running at https://k8s-dev-dns-4xd4wbq8.hcp.eastus.azmk8s.io:443
+CoreDNS is running at https://k8s-dev-dns-4xd4wbq8.hcp.eastus.azmk8s.io:443/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+Metrics-server is running at https://k8s-dev-dns-4xd4wbq8.hcp.eastus.azmk8s.io:443/api/v1/namespaces/kube-system/services/https:metrics-server:/proxy
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+ashu@ip-172-31-33-254:~$
+ashu@ip-172-31-33-254:~$
+ashu@ip-172-31-33-254:~$ kubectl   get   nodes
+NAME                                STATUS   ROLES   AGE     VERSION
+aks-agentpool-35575125-vmss000000   Ready    agent   4h38m   v1.27.7
+aks-agentpool-35575125-vmss000001   Ready    agent   4h38m   v1.27.7
+ashu@ip-172-31-33-254:~$
+
+```
+
+### datadog agent setup on AKS using given methods
+
+<img src="method.png">
+
+
