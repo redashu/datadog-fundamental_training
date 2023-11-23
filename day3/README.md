@@ -144,4 +144,49 @@ ashu@ip-172-31-33-254:~$
 
 <img src="method.png">
 
+## Datadog agent logs 
 
+```
+root@ashu-ubuntu:/etc/datadog-agent# cd  /var/log/datadog/
+root@ashu-ubuntu:/var/log/datadog# ls
+agent.log  process-agent.log  trace-agent.log
+root@ashu-ubuntu:/var/log/datadog# 
+
+
+```
+
+# Exam Info 
+
+## linux basic command 
+
+### checking tcp and udp port number started by datadog agent 
+
+```
+netstat -nltp
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 127.0.0.1:5012          0.0.0.0:*               LISTEN      898280/trace-agent  
+tcp        0      0 127.0.0.1:5000          0.0.0.0:*               LISTEN      898278/agent        
+tcp        0      0 127.0.0.1:5001          0.0.0.0:*               LISTEN      898278/agent        
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      797682/sshd: /usr/s 
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      531/systemd-resolve 
+tcp        0      0 127.0.0.1:6162          0.0.0.0:*               LISTEN      898279/process-agen 
+tcp        0      0 127.0.0.1:8126          0.0.0.0:*               LISTEN      898280/trace-agent  
+tcp        0      0 127.0.0.1:6062          0.0.0.0:*               LISTEN      898279/process-agen 
+tcp        0      0 127.0.0.1:40507         0.0.0.0:*               LISTEN      2808/containerd     
+tcp6       0      0 :::80                   :::*                    LISTEN      852784/apache2      
+tcp6       0      0 :::22                   :::*                    LISTEN      797682/sshd: /usr/s
+
+
+
+========>>> UDP
+
+netstat -nlup
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+udp        0      0 127.0.0.1:323           0.0.0.0:*                           662/chronyd         
+udp        0      0 127.0.0.1:8125          0.0.0.0:*                           898278/agent        
+udp        0      0 127.0.0.53:53           0.0.0.0:*                           531/systemd-resolve 
+udp        0      0 10.0.0.4:68             0.0.0.0:*                           529/systemd-network 
+udp6       0      0 ::1:323                 :::*                                662/chronyd        
+```
